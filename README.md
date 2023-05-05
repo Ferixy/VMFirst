@@ -2,7 +2,7 @@
 
 [![Telegram Badge](https://img.shields.io/badge/-HurbSquad-2ca5e0?style=flat&logo=telegram&logoColor=white&link=https://www.t.me/al1almasi)](https://www.t.me/HurbSquad)
 
-VMFirst is a small stupid cmd script created out of pure frustration over day to day need of configuring new made VMs. this script is designed around requiring almost zero user input to save time and confusion, they focus of the script is to get rid of the unnecessary windows bloatware and features that are not needed in a VM environment.
+VMFirst is a small stupid batchfile script created out of pure frustration over day to day need of configuring new made VMs. this script is designed around requiring almost zero user input to save time and confusion, they focus of the script is to get rid of the unnecessary windows bloatware and features that are not needed in a VM environment.
 
 ![VMFirst Screenshot](https://i.imgur.com/7iYThss.png)
 
