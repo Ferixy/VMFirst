@@ -38,7 +38,7 @@ I made this script for myself, but I decided to upload it here. I hope you find 
 | `Show file extensions ` | Makes explorer show file extension.                                                        |
 | `Show hidden files` | Makes explorer show hidden files.                                                        |
 | `Uninstall OneDrive` | Uninstalls OneDrive                                                        |
-| `ReEnable Defender` | Incase if you want to reactivate windows defender, there is an option to reset windows defender and its services                                                        |
+| `ReEnable Defender` | Incase you want to reactivate windows defender, there is an option to reset windows defender and its services                                                        |
 
 
 ## Things to consider
