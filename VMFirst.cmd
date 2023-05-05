@@ -19,7 +19,7 @@ echo.
 echo.
 echo An small and pretty basic script for fast first time setup of new VMs. made by Ferixy@Github
 color 4
-echo Please note that this script disables windows defender to reducing cpu/disk usage of the vm but it's Highly recommended to turn it back back on if you are using this script on a real machine.
+echo Please note that this script disables windows defender to reduce cpu/disk usage of the vm but it's Highly recommended to turn it back back on if you are using this script on a real machine.
 echo.
 echo Choose an option:
 echo 1. Start Debloating
@@ -58,9 +58,9 @@ echo SearchBar has been disabled.
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion" /v "SilentInstalledAppsEnabled" /t REG_DWORD /d 0 /f
 echo Automatic download of promoted apps has been disabled.
 reg add "HKCU\SOFTWARE\Policies\Microsoft\Windows\DataCollection" /v "AllowTelemetry" /t REG_DWORD /d 0 /f
-echo telemetry has been disabled.
+echo Telemetry has been disabled.
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
-echo explorer now shows file extensions.
+echo Explorer now shows file extensions.
 echo Killing OneDrive...
 tasklist | find /i "onedrive.exe" >nul
 

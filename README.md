@@ -4,7 +4,7 @@
 
 VMFirst is a small stupid batchfile script created out of pure frustration over day to day need of configuring new made VMs. this script is designed around requiring almost zero user input to save time and prevent confusion, the focus of VMFirst is to get rid of the unnecessary windows bloatware and features that are not needed in a VM environment.
 
-![VMFirst Screenshot](https://i.imgur.com/7iYThss.png)
+![VMFirst Screenshot](https://i.imgur.com/k5eKHz6.png)
 
 ## Why use it
 
