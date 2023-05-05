@@ -76,6 +76,7 @@ ping -n 10 127.0.0.1 > nul
 echo OneDrive Uninstalled.
 )
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f
+echo Explorer now shows hidden files.
 echo NOTE: Please ignore the error messages below(if any appeared).
 reg delete "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /v "Windows Defender" /f
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run" /v "Windows Defender" /f
