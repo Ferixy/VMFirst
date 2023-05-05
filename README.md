@@ -24,7 +24,7 @@ I made this script for myself, but I decided to upload it here. I hope you find 
 
 | Argument                  | Description                                                                              |
 | ------------------------- | -----------------------------------------------------------------------                  |
-| `Disable News and interest`     | Disables News and interests and widget               |
+| `Disable News and interest`     | Disables News and interests widget               |
 | `Disable Advertising ID`                      | Disables and resets microsoft advertising ID of the VM |
 | `Disable Automatic Windows Updates`   | Disables Windows Automatic updates                                       |
 | `Disable BingSearch` | Disables windows search with bing                                |
