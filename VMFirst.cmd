@@ -19,7 +19,7 @@ echo.
 echo.
 echo An small and pretty basic script for fast first time setup of new VMs. made by Ferixy@Github
 color 4
-echo Please note that this script disables windows defender to reduce cpu/disk usage of the vm but it's Highly recommended to turn it back back on if you are using this script on a real machine.
+echo Please note that this script disables windows defender to reduce cpu/disk usage of the VM but it's Highly recommended to turn it back on if you are using this script on a real machine.
 echo.
 echo Choose an option:
 echo 1. Start Debloating
