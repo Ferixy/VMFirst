@@ -10,7 +10,7 @@ VMFirst is a small stupid batchfile script created out of pure frustration over 
 
 The main advantage of VMFirst is ease of use and the time you can save with it. It is designed to let you focus on real important stuff while it gets the VM ready for you, which makes it great for **Mass VM installing** or **Repeated VM installation**.
 
-I made this script for myself, but I decided to upload it here. I hope you find it useful as well.
+I made this script to speed up my VM configuring process, but I decided to upload it here for anyone who might need it. I hope you find it useful.
 
 ## Usage
 ### Note: Run the script as administrator
@@ -33,12 +33,18 @@ I made this script for myself, but I decided to upload it here. I hope you find 
 | `Disable Mouse acceleration`       | Disables Mouse acceleration                                                              |
 | `Disable SearchBar` | Disables the big ol search windows search bar on taskbar                                                         |
 | `Disable Automatic download of promoted apps` | Disables the big ol windows search bar on taskbar                                                         | 
-| `Disable telemetry` | Disables the nasty microsoft phone home thingy                                                        |
+| `Disable Telemetry` | Disables the nasty microsoft phone home thingy                                                        |
 | `Disable Windows Defender` | Disables Windows Defender and its services to reduce cpu and disk usage                                                        |
 | `Show file extensions ` | Makes explorer show file extension.                                                        |
 | `Show hidden files` | Makes explorer show hidden files.                                                        |
 | `Uninstall OneDrive` | Uninstalls OneDrive                                                        |
-| `ReEnable Defender` | Incase you want to reactivate windows defender, there is an option to reset windows defender and its services                                                        |
+| `ReEnable Defender` | Incase you need to reactivate windows defender, there is an option to reset windows defender and its services                                                        |
+| `Delete Temp file` | Deletes Temporary files                                                        |
+| `Disable GameDVR` | Disables Xbox GameBar gameplay recording service                                                        |
+| `Disable Delivery Optimization` | Disables Delivery Optimization on the whole machine                                                        |
+| `Disable Location service` | Disables Windows location service                                                        |
+| `Disable Hibernation` | Disables Hibernation to save disk space                                                      |
+| `Enable DarkMode` | Enables DarkMode to prevent your eyes from exploding                                                     |
 
 
 ## Things to consider
