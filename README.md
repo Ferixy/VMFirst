@@ -39,7 +39,7 @@ I made this script to speed up my VM configuring process, but I decided to uploa
 | `Show hidden files` | Makes explorer show hidden files.                                                        |
 | `Uninstall OneDrive` | Uninstalls OneDrive                                                        |
 | `ReEnable Defender` | Incase you need to reactivate windows defender, there is an option to reset windows defender and its services                                                        |
-| `Delete Temp file` | Deletes Temporary files                                                        |
+| `Delete Temp files` | Deletes Temporary files                                                        |
 | `Disable GameDVR` | Disables Xbox GameBar gameplay recording service                                                        |
 | `Disable Delivery Optimization` | Disables Delivery Optimization on the whole machine                                                        |
 | `Disable Location service` | Disables Windows location service                                                        |
