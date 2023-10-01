@@ -14,7 +14,7 @@ echo   dBP dP      dBBBBBBb     dBBBBP     dBP    BBBBBb  .dBBBBP  dBBBBBBP
 echo                '   dB'                          dBP  BP               
 echo  dB .BP     dB'dB'dB'    dBBBP      dBP     dBBBBK   `BBBBb    dBP    
 echo  BB.BP     dB'dB'dB'    dBP        dBP     dBP  BB      dBP   dBP     
-echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V1.5                                                                                                                      
+echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V1.6                                                                                                                      
 echo.
 echo.
 echo A small and pretty basic script for fast first time setup of new VMs. made by Ferixy@Github
