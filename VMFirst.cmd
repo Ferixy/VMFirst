@@ -17,9 +17,9 @@ echo  BB.BP     dB'dB'dB'    dBP        dBP     dBP  BB      dBP   dBP
 echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V1.5                                                                                                                      
 echo.
 echo.
-echo An small and pretty basic script for fast first time setup of new VMs. made by Ferixy@Github
+echo A small and pretty basic script for fast first time setup of new VMs. made by Ferixy@Github
 color 4
-echo Please note that this script disables windows defender to reduce cpu/disk usage of the VM but it's Highly recommended to turn it back on if you are using this script on a real machine.
+echo Please note that this script disables windows defender to reduce cpu/disk usage of the VM but it is Highly recommended to turn it back on if you are using this script on a real machine.
 echo.
 echo Choose an option:
 echo 1. Start Debloating
