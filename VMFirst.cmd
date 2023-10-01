@@ -23,13 +23,19 @@ echo Please note that this script disables windows defender to reduce cpu/disk u
 echo.
 echo Choose an option:
 echo 1. Start Debloating
-echo 2. Reenable Windows defender
+echo 2. Disable Windows updates
+echo 3. Uninstall Edge and Install Firefox (not ready yet)
+echo 4. ReEnable Windows defender
+echo 5. Install HitmanPro (Second opinion malware scanner) (not ready yet)
 echo 0. Exit
 
 set /p choice=Type the number of your choice:
 
 if "%choice%"=="1" goto option1
 if "%choice%"=="2" goto option2
+if "%choice%"=="3" goto option3
+if "%choice%"=="4" goto option4
+if "%choice%"=="5" goto option5
 if "%choice%"=="0" goto endtask
 
 :option1
@@ -135,6 +141,30 @@ pause
 goto menu
 
 :option2
+echo Warning: Disabling Windows updates can leave your system vulnerable to security threats and other issues.
+echo It is strongly recommended to keep Windows updates enabled.
+echo This is an invisible echo command >nul
+echo Are you sure you want to disable Windows updates? (Y/N)
+set /p confirmation=
+if /i "%confirmation%"=="Y" (
+echo planting a bomb in windows update service...
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "AUOptions" /t REG_DWORD /d 1 /f>nul 2>&1
+net stop wuauserv >nul 2>&1
+sc config wuauserv start= disabled >nul 2>&1
+echo This is an invisible echo command >nul
+echo Windows updates are now disabled. Please restart your computer to detonate the bomb.
+) else (
+echo Operation canceled. Windows updates will remain enabled.
+)
+pause
+goto menu
+:option3
+echo this option is not ready yet ):
+pause
+goto menu
+
+
+:option4
 echo About to reenable windows defender...
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 0 /f
@@ -146,6 +176,11 @@ echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.                                                                                                                                                                                                                                                                                 
+pause
+goto menu
+
+:option5
+echo this option is not ready yet ):
 pause
 goto menu
 
