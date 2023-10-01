@@ -25,8 +25,9 @@ echo Choose an option:
 echo 1. Start Debloating
 echo 2. Disable Windows updates
 echo 3. Uninstall Edge and Install Firefox (not ready yet)
-echo 4. ReEnable Windows defender
-echo 5. Install HitmanPro (Second opinion malware scanner) (not ready yet)
+echo 4. ReEnable Windows Defender
+echo 5. ReEnable Windows Updates
+echo 6. Install HitmanPro (Second opinion malware scanner) (not ready yet)
 echo 0. Exit
 
 set /p choice=Type the number of your choice:
@@ -36,6 +37,7 @@ if "%choice%"=="2" goto option2
 if "%choice%"=="3" goto option3
 if "%choice%"=="4" goto option4
 if "%choice%"=="5" goto option5
+if "%choice%"=="6" goto option6
 if "%choice%"=="0" goto endtask
 
 :option1
@@ -137,13 +139,14 @@ echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
+echo.
 pause
 goto menu
 
 :option2
 echo Warning: Disabling Windows updates can leave your system vulnerable to security threats and other issues.
 echo It is strongly recommended to keep Windows updates enabled.
-echo This is an invisible echo command >nul
+echo.
 echo Are you sure you want to disable Windows updates? (Y/N)
 set /p confirmation=
 if /i "%confirmation%"=="Y" (
@@ -151,15 +154,18 @@ echo planting a bomb in windows update service...
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "AUOptions" /t REG_DWORD /d 1 /f>nul 2>&1
 net stop wuauserv >nul 2>&1
 sc config wuauserv start= disabled >nul 2>&1
-echo This is an invisible echo command >nul
+echo.
 echo Windows updates are now disabled. Please restart your computer to detonate the bomb.
 ) else (
 echo Operation canceled. Windows updates will remain enabled.
 )
+echo.
 pause
 goto menu
+
 :option3
 echo this option is not ready yet ):
+echo.
 pause
 goto menu
 
@@ -180,9 +186,23 @@ pause
 goto menu
 
 :option5
+echo ReEnabling Windows updates, hold tight...
+echo.
+reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "AUOptions" /f>nul 2>&1
+sc config wuauserv start= auto >nul 2>&1
+net start wuauserv >nul 2>&1
+sc config wuauserv start= auto >nul 2>&1
+echo Windows updates have been ReEnabled. Please restart your computer for the changes to take effect.
+echo.
+pause
+goto menu
+
+:option6
 echo this option is not ready yet ):
+echo.
 pause
 goto menu
 
 :endtask
+echo.
 echo Exiting...
