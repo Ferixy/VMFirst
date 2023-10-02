@@ -239,7 +239,22 @@ pause
 goto menu
 
 :option8
-echo this option is not ready yet ):
+echo Starting the repair process this will take a while depending on your VM specs...
+echo Running System File Checker (sfc)...
+sfc /scannow
+echo.
+echo Running Deployment Imaging Service and Management Tool (DISM)...
+DISM /Online /Cleanup-Image /RestoreHealth
+echo.
+echo Round 1 of 2 has been completed. going for the second round...
+echo.
+echo Running System File Checker (SFC)...
+sfc /scannow
+echo.
+echo Running Deployment Imaging Service and Management Tool (DISM)...
+DISM /Online /Cleanup-Image /RestoreHealth
+echo.
+echo Done.
 echo.
 pause
 goto menu
@@ -249,7 +264,7 @@ goto menu
 echo System Information
 echo ------------------
 echo Hostname: %COMPUTERNAME%
-echo User: %USERNAME%
+echo Local Username: %USERNAME%
 systeminfo | findstr /C:"OS Name" /C:"OS Version" /C:"System Type"
 echo.
 
