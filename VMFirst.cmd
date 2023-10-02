@@ -14,7 +14,7 @@ echo   dBP dP      dBBBBBBb     dBBBBP     dBP    BBBBBb  .dBBBBP  dBBBBBBP
 echo                '   dB'                          dBP  BP               
 echo  dB .BP     dB'dB'dB'    dBBBP      dBP     dBBBBK   `BBBBb    dBP    
 echo  BB.BP     dB'dB'dB'    dBP        dBP     dBP  BB      dBP   dBP     
-echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V1.6                                                                                                                      
+echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V1.7                                                                                                                      
 echo.
 echo.
 echo A small and pretty basic script for fast first time setup of new VMs. made by Ferixy@Github
@@ -24,11 +24,15 @@ echo.
 echo Choose an option:
 echo 1. Start Debloating
 echo 2. Disable Windows updates
-echo 3. Uninstall Edge and Install Firefox (not ready yet)
-echo 4. ReEnable Windows Defender
-echo 5. ReEnable Windows Updates
-echo 6. Install HitmanPro (Second opinion malware scanner) (not ready yet)
+echo 3. Tweak performance settings (Reduce animations and more! recommended for low-end VMs)
+echo 4. Uninstall Edge and Install Firefox (not ready yet)
+echo 5. ReEnable Windows Defender
+echo 6. ReEnable Windows Updates
+echo 7. Install HitmanPro (Second opinion malware scanner) (not ready yet)
+echo 8. Repair windows image (May take a while to complete)
+echo 9. Show detailed system info
 echo 0. Exit
+echo.
 
 set /p choice=Type the number of your choice:
 
@@ -38,7 +42,14 @@ if "%choice%"=="3" goto option3
 if "%choice%"=="4" goto option4
 if "%choice%"=="5" goto option5
 if "%choice%"=="6" goto option6
+if "%choice%"=="7" goto option7
+if "%choice%"=="8" goto option8
+if "%choice%"=="9" goto option9
 if "%choice%"=="0" goto endtask
+
+echo Please choose a valid option.
+pause
+goto menu
 
 :option1
 echo Debloating.
@@ -140,6 +151,7 @@ echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo.
+echo Done.
 pause
 goto menu
 
@@ -160,18 +172,38 @@ echo Windows updates are now disabled. Please restart your computer to detonate 
 echo Operation canceled. Windows updates will remain enabled.
 )
 echo.
+echo Done.
 pause
 goto menu
 
 :option3
+echo Tweaking the performance stuff... this shouldn't take long...
+echo.
+%SystemRoot%\System32\SystemPropertiesPerformance.exe /S /T 3>nul 2>&1
+echo Visual effects set to "Best Performance."
+powercfg /setactive scheme_min>nul 2>&1
+echo High performance mode has been enabled.
+powercfg -duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61>nul 2>&1
+echo Ultimate performance plan has been added and you can enable it in control panel(Not recommended)
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v SystemPaneSuggestionsEnabled /t REG_DWORD /d 0 /f>nul 2>&1
+echo Windows Tips, Tricks, and Suggestions has been disabled.
+echo.
+echo Done.
+pause
+goto menu
+
+echo.
+pause
+goto menu
+
+:option4
 echo this option is not ready yet ):
 echo.
 pause
 goto menu
 
-
-:option4
-echo About to reenable windows defender...
+:option5
+echo About to ReEnable windows defender...
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v DisableAntiSpyware /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" /v DisableRealtimeMonitoring /t REG_DWORD /d 0 /f
 echo Windows defender has been reactivated. PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
@@ -181,11 +213,13 @@ echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
 echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
-echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.                                                                                                                                                                                                                                                                                 
+echo PLEASE RESTART YOUR SYSTEM FOR CHANGES TO TAKE EFFECT.
+echo.
+echo Done.                                                                                                                                                                                                                                                                          
 pause
 goto menu
 
-:option5
+:option6
 echo ReEnabling Windows updates, hold tight...
 echo.
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "AUOptions" /f>nul 2>&1
@@ -194,11 +228,57 @@ net start wuauserv >nul 2>&1
 sc config wuauserv start= auto >nul 2>&1
 echo Windows updates have been ReEnabled. Please restart your computer for the changes to take effect.
 echo.
+echo Done.
 pause
 goto menu
 
-:option6
+:option7
 echo this option is not ready yet ):
+echo.
+pause
+goto menu
+
+:option8
+echo this option is not ready yet ):
+echo.
+pause
+goto menu
+
+:option9
+@echo off
+echo System Information
+echo ------------------
+echo Hostname: %COMPUTERNAME%
+echo User: %USERNAME%
+systeminfo | findstr /C:"OS Name" /C:"OS Version" /C:"System Type"
+echo.
+
+echo Hardware Information
+echo ------------------
+echo CPU Info:
+wmic cpu get name
+echo.
+echo RAM Info:
+wmic memorychip get manufacturer
+systeminfo | findstr /C:"Total Physical Memory"
+echo.
+echo Disk Drives:
+wmic diskdrive get caption, size
+echo.
+echo GPU Info:
+dxdiag /t "%temp%\dxdiag_output.txt"
+findstr /i "Chip Type: Memory: Approx. Total Memory:" "%temp%\dxdiag_output.txt"
+del "%temp%\dxdiag_output.txt"
+echo.
+echo Checking internet availability...
+
+ping google.com -n 1 > nul
+
+if %errorlevel% == 0 (color 0A
+    echo Internet is available.
+) else (color 0C
+    echo Internet is not available.
+)
 echo.
 pause
 goto menu
