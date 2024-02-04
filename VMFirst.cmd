@@ -27,7 +27,7 @@ echo Choose an option:
 echo 1. Start Debloating
 echo 2. Disable Windows updates
 echo 3. Tweak performance settings (Reduce animations and more! recommended for low-end VMs)
-echo 4. Download Edge uninstaller and install Firefox
+echo 4. Download Edge uninstaller and Firefox browser
 echo 5. ReEnable Windows Defender
 echo 6. ReEnable Windows Updates
 echo 7. Download HitmanPro (Second opinion malware scanner)
@@ -206,14 +206,14 @@ echo You are about to download edge uninstaller please enter 1 for confirmation.
 set /p choice=
 
 if "%choice%"=="1" (
-    echo Downloading Remove-MS-Edge by ShadowWhisperer...
-    curl -L -o C:\removeedge.exe "https://github.com/ShadowWhisperer/Remove-MS-Edge/blob/main/Remove-NoTerm.exe?raw=true"
+    echo Downloading Remove-MS-Edge (silent) by ShadowWhisperer...
+    curl -L -o C:\EdgeRemover.exe "https://github.com/ShadowWhisperer/Remove-MS-Edge/blob/main/Remove-NoTerm.exe?raw=true"
     echo Remove-MS-Edge download complete.
     echo Do you want to Download Firefox installer? Y/N
     set /p download_firefox=
     if /i "!download_firefox!"=="Y" (
         echo Downloading firefox...
-        curl -L -o C:\ffinstaller.exe "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US"
+        curl -L -o C:\firefoxinstaller.exe "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US"
         echo Firefox download complete.
     )
     echo.
