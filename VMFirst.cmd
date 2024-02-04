@@ -8,7 +8,7 @@ if %errorLevel% == 0 (
   exit /b 1
 )
 :menu
-set "_title=VMFIRST - Setup your VMs in no time!"
+set "_title=VMFIRST V2.0"
 
 title %_title%
 cls
@@ -30,7 +30,7 @@ echo 3. Tweak performance settings (Reduce animations and more! recommended for 
 echo 4. Download Edge uninstaller and install Firefox
 echo 5. ReEnable Windows Defender
 echo 6. ReEnable Windows Updates
-echo 7. Install HitmanPro (Second opinion malware scanner)
+echo 7. Download HitmanPro (Second opinion malware scanner)
 echo 8. Repair windows image (May take a while to complete)
 echo 9. Show detailed system info
 echo 0. Exit
@@ -260,7 +260,9 @@ pause
 goto menu
 
 :option7
-echo this option is not ready yet ):
+echo Downloading HitmanPro...
+    curl -L -o C:\HitmanPro.exe "https://github.com/Ferixy/VMFirst/raw/main/HitmanPro_x64.exe"
+    echo Download completed successfully! You can find the file in the root of C drive.
 echo.
 pause
 goto menu
