@@ -4,7 +4,7 @@
 
 VMFirst is a small script created out of pure frustration over day to day need of configuring new made VMs. this script is designed around requiring almost zero user input to save time and prevent confusion, the focus of VMFirst is to get rid of the unnecessary windows bloatware and features that are not needed in a VM environment.
 
-![VMFirst Screenshot](https://imgur.com/a/Ad05Dh2)
+![VMFirst Screenshot](https://github.com/Ferixy/VMFirst/assets/77561374/3fcc868f-2c51-4ebb-9a1f-fc14ab868276)
 
 ## Why should I use it?
 
