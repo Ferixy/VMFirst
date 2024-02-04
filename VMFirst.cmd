@@ -1,5 +1,4 @@
 @echo off
-:: Check if running as admin
 NET SESSION >NUL 2>&1
 if %errorLevel% == 0 (
   echo Running with admin rights...
@@ -14,10 +13,10 @@ echo   dBP dP      dBBBBBBb     dBBBBP     dBP    BBBBBb  .dBBBBP  dBBBBBBP
 echo                '   dB'                          dBP  BP               
 echo  dB .BP     dB'dB'dB'    dBBBP      dBP     dBBBBK   `BBBBb    dBP    
 echo  BB.BP     dB'dB'dB'    dBP        dBP     dBP  BB      dBP   dBP     
-echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V1.7                                                                                                                      
+echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V2.0                                                                                                                      
 echo.
 echo.
-echo A small and pretty basic script for fast first time setup of new VMs. made by Ferixy@Github
+echo A small and pretty basic script for fast first time setup of new VMs. Made by Ferixy@Github.
 color 4
 echo Please note that this script disables windows defender to reduce cpu/disk usage of the VM but it is Highly recommended to turn it back on if you are using this script on a real machine.
 echo.
@@ -25,10 +24,10 @@ echo Choose an option:
 echo 1. Start Debloating
 echo 2. Disable Windows updates
 echo 3. Tweak performance settings (Reduce animations and more! recommended for low-end VMs)
-echo 4. Uninstall Edge and Install Firefox (not ready yet)
+echo 4. Download Edge uninstaller and install Firefox
 echo 5. ReEnable Windows Defender
 echo 6. ReEnable Windows Updates
-echo 7. Install HitmanPro (Second opinion malware scanner) (not ready yet)
+echo 7. Install HitmanPro (Second opinion malware scanner)
 echo 8. Repair windows image (May take a while to complete)
 echo 9. Show detailed system info
 echo 0. Exit
@@ -197,7 +196,32 @@ pause
 goto menu
 
 :option4
-echo this option is not ready yet ):
+setlocal enabledelayedexpansion
+
+echo You are about to download edge uninstaller please enter 1 for confirmation.
+
+set /p choice=
+
+if "%choice%"=="1" (
+    echo Downloading Remove-MS-Edge by ShadowWhisperer...
+    curl -L -o C:\removeedge.exe "https://github.com/ShadowWhisperer/Remove-MS-Edge/blob/main/Remove-NoTerm.exe?raw=true"
+    echo Remove-MS-Edge download complete.
+    echo Do you want to Download Firefox installer? Y/N
+    set /p download_firefox=
+    if /i "!download_firefox!"=="Y" (
+        echo Downloading firefox...
+        curl -L -o C:\ffinstaller.exe "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US"
+        echo Firefox download complete.
+    )
+    echo.
+    echo Download completed successfully! You can find the file(s) in the root of C drive.
+) else (
+    echo Canceled.
+    echo.
+    pause
+    goto menu
+)
+
 echo.
 pause
 goto menu
@@ -261,6 +285,7 @@ goto menu
 
 :option9
 @echo off
+echo.
 echo System Information
 echo ------------------
 echo Hostname: %COMPUTERNAME%
@@ -278,7 +303,16 @@ wmic memorychip get manufacturer
 systeminfo | findstr /C:"Total Physical Memory"
 echo.
 echo Disk Drives:
-wmic diskdrive get caption, size
+wmic diskdrive get caption
+setlocal enabledelayedexpansion
+
+for /f "tokens=2 delims==" %%A in ('wmic diskdrive get size /value ^| find "Size"') do (
+    set "size=%%A"
+    set "sizeMB="
+    for /f %%B in ('powershell -command "[math]::floor(!size! / (1024*1024))"') do set "sizeMB=%%B"
+    echo Size in MB: !sizeMB!
+)
+endlocal
 echo.
 echo GPU Info:
 dxdiag /t "%temp%\dxdiag_output.txt"
@@ -290,9 +324,9 @@ echo Checking internet availability...
 ping google.com -n 1 > nul
 
 if %errorlevel% == 0 (color 0A
-    echo Internet is available.
+    echo Internet is available. successfully pinged google.com.
 ) else (color 0C
-    echo Internet is not available.
+    echo Internet is not available. failed to ping google.com.
 )
 echo.
 pause
