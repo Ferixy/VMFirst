@@ -27,7 +27,7 @@ echo Choose an option:
 echo 1. Start Debloating
 echo 2. Disable Windows updates
 echo 3. Tweak performance settings (Reduce animations and more! recommended for low-end VMs)
-echo 4. Download Edge uninstaller and Firefox browser
+echo 4. Download Edge uninstaller and Firefox installer
 echo 5. ReEnable Windows Defender
 echo 6. ReEnable Windows Updates
 echo 7. Download HitmanPro (Second opinion malware scanner)
