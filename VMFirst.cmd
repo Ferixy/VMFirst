@@ -19,7 +19,7 @@ echo  BB.BP     dB'dB'dB'    dBP        dBP     dBP  BB      dBP   dBP
 echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V2.0                                                                                                                      
 echo.
 echo.
-echo A small and pretty basic script for fast first time setup of new VMs. Made by Ferixy@Github.
+echo A small script for fast first time setup of new VMs. Made by Ferixy@Github.
 color 4
 echo Please note that this script disables windows defender to reduce cpu/disk usage of the VM but it is Highly recommended to turn it back on if you are using this script on a real machine.
 echo.
@@ -268,7 +268,7 @@ pause
 goto menu
 
 :option8
-echo Starting the repair process this will take a while depending on your VM specs...
+echo Starting the repair process... this will take a while depending on your VM specs...
 echo Running System File Checker (sfc)...
 sfc /scannow
 echo.
