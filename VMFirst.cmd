@@ -3,11 +3,14 @@ NET SESSION >NUL 2>&1
 if %errorLevel% == 0 (
   echo Running with admin rights...
 ) else (
-  echo Please run the script as admin.
+  echo VMFIRST A script by Ferixy@Github: Please run the script as admin.
   pause
   exit /b 1
 )
 :menu
+set "_title=VMFIRST - Setup your VMs in no time!"
+
+title %_title%
 cls
 echo   dBP dP      dBBBBBBb     dBBBBP     dBP    BBBBBb  .dBBBBP  dBBBBBBP
 echo                '   dB'                          dBP  BP               
