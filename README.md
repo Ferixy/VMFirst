@@ -1,6 +1,7 @@
 # VMFirst
 
 [![Telegram Badge](https://img.shields.io/badge/-HurbSquad-2ca5e0?style=flat&logo=telegram&logoColor=white&link=https://www.t.me/al1almasi)](https://www.t.me/HurbSquad)
+Hi there! If this project is helpful to you please consider giving it a 🌟. thanks!
 
 VMFirst is a small script created out of pure frustration over day to day need of configuring new made VMs. this script is designed around requiring almost zero user input to save time and prevent confusion, the focus of VMFirst is to get rid of the unnecessary windows bloatware and features that are not needed in a VM environment.
 
@@ -13,7 +14,7 @@ The main advantage of VMFirst is ease of use and the time you can save with it. 
 I made this script to speed up my VM configuring process, but I decided to upload it here for anyone who might need it. I hope you find it useful.
 
 ## Usage
-### Note: Run the script as administrator
+### Note: Please run the script as administrator
 
 1. Download the [latest release](https://github.com/ferixy/vmfirst/releases/)
 2. Again, please run the script as administrator
@@ -45,9 +46,9 @@ I made this script to speed up my VM configuring process, but I decided to uploa
 | `Disable Location service` | Disables Windows location service                                                        |
 | `Disable Hibernation` | Disables Hibernation to free up disk space                                                      |
 | `Enable DarkMode` | Enables DarkMode to prevent your eyes from exploding                                                     |
-
+| `And much much more!` | You can look up the source code for more details and info
 
 ## Things to consider
 
 - this script is intended to be used on windows 10 VMs but you can try it on Windows 11 if you are feeling brave.
-- you can run and use VMFirst as soon as you install windows, but it is recommended to run VMFirst after you install VMware/VirtualBox drivers on your OS.
+- you can run and use VMFirst as soon as you install windows, but it is recommended to run VMFirst after you installed VMware/VirtualBox drivers on your OS.
