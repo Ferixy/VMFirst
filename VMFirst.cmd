@@ -8,7 +8,7 @@ if %errorLevel% == 0 (
   exit /b 1
 )
 :menu
-set "_title=VMFIRST V2.0"
+set "_title=VMFIRST 2.1"
 
 title %_title%
 cls
@@ -16,7 +16,7 @@ echo   dBP dP      dBBBBBBb     dBBBBP     dBP    BBBBBb  .dBBBBP  dBBBBBBP
 echo                '   dB'                          dBP  BP               
 echo  dB .BP     dB'dB'dB'    dBBBP      dBP     dBBBBK   `BBBBb    dBP    
 echo  BB.BP     dB'dB'dB'    dBP        dBP     dBP  BB      dBP   dBP     
-echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V2.0                                                                                                                      
+echo  BBBP     dB'dB'dB'    dBP        dBP     dBP  dB' dBBBBP'   dBP  V2.1                                                                                                                      
 echo.
 echo.
 echo A small script for fast first time setup of new VMs. Made by Ferixy@Github.
@@ -164,6 +164,7 @@ echo.
 echo Are you sure you want to disable Windows updates? (Y/N)
 set /p confirmation=
 if /i "%confirmation%"=="Y" (
+    echo.
 echo planting a bomb in windows update service...
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v "AUOptions" /t REG_DWORD /d 1 /f>nul 2>&1
 net stop wuauserv >nul 2>&1
@@ -181,7 +182,7 @@ goto menu
 :option3
 echo Tweaking the performance stuff... this shouldn't take long...
 echo.
-%SystemRoot%\System32\SystemPropertiesPerformance.exe /S /T 3>nul 2>&1
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" /v VisualFXSetting /t REG_DWORD /d 2 /f
 echo Visual effects set to "Best Performance."
 powercfg /setactive scheme_min>nul 2>&1
 echo High performance mode has been enabled.
@@ -199,35 +200,23 @@ pause
 goto menu
 
 :option4
-setlocal enabledelayedexpansion
+@echo off
+set EdgeRemoverURL=https://github.com/ShadowWhisperer/Remove-MS-Edge/blob/main/Remove-NoTerm.exe?raw=true
+set FirefoxInstallerURL=https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US
 
-echo You are about to download edge uninstaller please enter 1 for confirmation.
+echo Downloading Edge uninstaller...
+echo.
+curl -L -o C:\EdgeRemover.exe "%EdgeRemoverURL%"
+echo.
+echo Downloading Firefox installer...
+echo.
+curl -L -o C:\firefoxinstaller.exe "%FirefoxInstallerURL%"
 
-set /p choice=
-
-if "%choice%"=="1" (
-    echo Downloading Remove-MS-Edge (silent) by ShadowWhisperer...
-    curl -L -o C:\EdgeRemover.exe "https://github.com/ShadowWhisperer/Remove-MS-Edge/blob/main/Remove-NoTerm.exe?raw=true"
-    echo Remove-MS-Edge download complete.
-    echo Do you want to Download Firefox installer? Y/N
-    set /p download_firefox=
-    if /i "!download_firefox!"=="Y" (
-        echo Downloading firefox...
-        curl -L -o C:\firefoxinstaller.exe "https://download.mozilla.org/?product=firefox-latest&os=win64&lang=en-US"
-        echo Firefox download complete.
-    )
     echo.
-    echo Download completed successfully! You can find the file(s) in the root of C drive.
-) else (
-    echo Canceled.
+    echo Download job successful! You can find the files in the root of the C drive.
     echo.
     pause
     goto menu
-)
-
-echo.
-pause
-goto menu
 
 :option5
 echo About to ReEnable windows defender...
@@ -261,8 +250,8 @@ goto menu
 
 :option7
 echo Downloading HitmanPro...
-    curl -L -o C:\HitmanPro.exe "https://github.com/Ferixy/VMFirst/raw/main/HitmanPro_x64.exe"
-    echo Download completed successfully! You can find the file in the root of C drive.
+curl -L -o C:\HitmanPro.exe "https://github.com/Ferixy/VMFirst/raw/main/HitmanPro_x64.exe"
+echo Download job successful! You can find the file in the root of the C drive.
 echo.
 pause
 goto menu
